@@ -5,39 +5,8 @@ orbs:
   aws-s3: circleci/aws-s3@3.0
   eb: circleci/aws-elastic-beanstalk@2.0.1
 
-# jobs:
-  # build-fe:
-  #   docker:
-  #     - image: cimg/node:16.13.1
-  #   steps:
-  #     - checkout
-  #     - run:
-  #         name: Front-End Install
-  #         command: npm run frontend:install
-  #     - run:
-  #         name: Front-End Build
-  #         command: |
-  #           npm run frontend:build
-  #     - aws-s3/sync:
-  #         arguments: |
-  #           --delete \
-  #           --acl public-read \
-  #           --cache-control "max-age=86400"
-  #         aws-access-key-id: AWS_ACCESS_KEY_ID
-  #         aws-region: AWS_REGION
-  #         aws-secret-access-key: AWS_SECRET_ACCESS_KEY
-  #         from: udagram-frontend/www
-  #         to: 's3://udagramapplication'
-
-# workflows:
-#   deploy:
-#     jobs:
-#       - build-fe:
-#           context: udagram_aws
-
-
 jobs:
-  deploy-be:
+  deploy-api:
     docker:
       - image: cimg/node:16.13.1
     steps:
@@ -53,12 +22,39 @@ jobs:
       - run:
           name: Deploy API
           command: npm run api:deploy
+  deploy-frontend:
+    docker:
+      - image: cimg/node:16.13.1
+    steps:
+      - checkout
+      - run:
+          name: Front-End Install
+          command: npm run frontend:install
+      - run:
+          name: Front-End Build
+          command: |
+            npm run frontend:build
+      - aws-s3/sync:
+          arguments: |
+            --delete \
+            --acl public-read \
+            --cache-control "max-age=86400"
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-region: AWS_REGION
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          from: udagram-frontend/www
+          to: 's3://udagramapplication'
 
 workflows:
-  deployment:
+  main:
     jobs:
-      - deploy-be:
+      - deploy-api:
           context: udagram_aws
-
-
-
+          filters:
+            branches:
+              only: master
+      - deploy-frontend:
+          context: udagram_aws
+          filters:
+            branches:
+              only: master
