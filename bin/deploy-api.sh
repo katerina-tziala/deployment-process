@@ -1,2 +1,2 @@
 echo 'deploying api artifact'
-eb deploy
+eb deploy Udagramapi-env
