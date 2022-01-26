@@ -1,2 +1,3 @@
 echo 'deploying api artifact'
-eb deploy Udagramapi-env
+eb setenv NAME=$ENV_ENV
+eb deploy $ENV_API
