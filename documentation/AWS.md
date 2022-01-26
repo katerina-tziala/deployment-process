@@ -4,14 +4,14 @@
     <img src="https://github.com/katerina-tziala/deployment-process/blob/master/screenshots/ArchitectureDiagram.png" alt="AWS Infrastracture diagram" width="90%" height="auto">
 </p>
 
-### RDS database
-Postgress database
+### RDS Postgress Database
 Database endpoint: udagram.cwoorvcvkwox.us-east-1.rds.amazonaws.com
 
 ### Elastic Beanstalk
 Server is running on EBS and depends on the database
 
 Server url : http://udagramapi-env.eba-9uh4euee.us-east-1.elasticbeanstalk.com
+
 API ulr: http://udagramapi-env.eba-9uh4euee.us-east-1.elasticbeanstalk.com/api/v0/
 
 ### S3
