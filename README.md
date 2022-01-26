@@ -38,6 +38,8 @@ Provision the necessary AWS services needed for running the application:
 1. From the root of the repo, navigate udagram-api folder `cd starter/udagram-api` to install the node_modules `npm install`. After installation is done start the api in dev mode with `npm run dev`.
 1. Without closing the terminal in step 1, navigate to the udagram-frontend `cd starter/udagram-frontend` to intall the node_modules `npm install`. After installation is done start the api in dev mode with `npm run start`.
 
+**Note:** check AWS provisions in the [screenshots folder](https://github.com/katerina-tziala/deployment-process/tree/master/screenshots) 
+  
 ## Testing
 
 This project contains two different test suite: unit tests and End-To-End tests(e2e). Follow these steps to run the tests.
@@ -62,6 +64,23 @@ The e2e tests are using Protractor and Jasmine (currently not working).
 - [Node](https://nodejs.org) - Javascript Runtime
 - [Express](https://expressjs.com/) - Javascript API Framework
 
+## Additional Documentation
+
+- [CircleCi](https://github.com/katerina-tziala/deployment-process/blob/master/documentation/CIRCLE_CI.md) - Udagram CircleCI Documentation
+
+- [AWS](https://github.com/katerina-tziala/deployment-process/blob/master/documentation/AWS.md) - Udagram AWS Infrastracture
+
+  
+## Future Improvements
+
+  - Update Angular and Ionic to the latest version 
+  - Fix e2e tests
+  - Write tests for the API
+  - Run tests in the main pipeline
+  - Configure a pipeline to run tests on Pull Requests to the main branch
+  - Set up separate environments for staging and production in elastic beanstalk and s3. Deploy PR code to the staging and Main to Production
+
+  
 ## License
 
 [License](LICENSE.txt)
