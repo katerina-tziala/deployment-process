@@ -2,7 +2,7 @@
 
 [![katerina-tziala>](https://circleci.com/gh/katerina-tziala/deployment-process.svg?style=svg)](<LINK>)
 
-This application is provided to you as an alternative starter project if you do not wish to host your own code done in the previous courses of this nanodegree. The udagram application is a fairly simple application that includes all the major components of a Full-Stack web application.
+The **Udagram** application was provided as a starter project from Udacity in the context of the Full Stack JavaScript Developer Nanodegree. The **Udagram**  application is a fairly simple application that includes all the major components of a Full-Stack web application.
 
 ## Getting Started
 
